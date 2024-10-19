@@ -18,7 +18,8 @@ public class jsonParse {
 
         for(int i = 0; i < count; i++) {
             if(js.getString("courses["+ i +"].title").equals("RPA")) {
-                System.out.println(js.getString("courses["+ i +"].copies"));
+                System.out.println(js.getInt("courses["+ i +"].copies"));
+                break;
             }
         }
     }
