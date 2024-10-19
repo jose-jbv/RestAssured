@@ -1,5 +1,6 @@
-package files;
+package restAPI;
 
+import files.payloads;
 import io.restassured.path.json.JsonPath;
 
 public class jsonParse {
