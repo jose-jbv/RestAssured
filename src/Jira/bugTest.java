@@ -30,7 +30,8 @@ public class bugTest {
                 log().all().
                 when().
                     post("rest/api/3/issue").
-                then().log().all().assertThat().statusCode(201).
+                then().
+                        assertThat().statusCode(201).
                 extract().response().asString();
 
         JsonPath js = new JsonPath(createIssueResponse);
@@ -38,13 +39,13 @@ public class bugTest {
 
         // Add Attachment
         given().
-                header("Content-Type","application/json").
-                header("X-Attlasian-Token","no-check").
+                header("X-Atlassian-Token","no-check").
                 header("Authorization","Basic am9zZUBraW1ldC5jbDpBVEFUVDN4RmZHRjBydk5yaFFnUVlBM3NIVGllNk0tejQ2c2JKY3p4U0tsaG90RzFLLXdfSjJyZHQ4ZUFvYUtLVXFxVGpueFRXdnJIMW9rS1UwaWY2NWtYQlJrbkVZc1JNdzZPOElDUVozQlBQQ01xd252emdJNGdKSUdwaWp1MG9JeXMtVHNlT3BoVFQ0U0xLOEp2bmFkVl9Lb3k4UlpsbHZ3aTFGa2l2LS1HSFVIaWEyeW5FY009RjgxMjM0OTc=").
                 pathParam("key",issueID).
-                multiPart("file",New File("C:\\Users\\Kimet\\Descargas\\Liverpool_FC.svg")).
+                multiPart("file",new File("C:\\Users\\Kimet\\Downloads\\blink.jpg")).
         when().
                 post("rest/api/3/issue/{key}/attachments").
-        then().log().all()
+        then().
+                assertThat().statusCode(200);
     }
 }
