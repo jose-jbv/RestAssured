@@ -2,6 +2,7 @@ package Oauth;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import pojo.getCourse;
 
 import static io.restassured.RestAssured.*;
 
@@ -25,12 +26,13 @@ public class oauthTest {
         String access_token = js.getString("access_token");
 
         // Get Details
-        String detailsResponse =
+        getCourse detailsResponse =
                 given().
                     queryParam("access_token",access_token).
                 when().
-                    get("oauthapi/getCourseDetails").asString();
-        System.out.println(detailsResponse);
+                    get("oauthapi/getCourseDetails").as(getCourse.class);
+
+        System.out.println(detailsResponse.getLinkedIn());
 
     }
 }
