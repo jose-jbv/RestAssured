@@ -2,10 +2,13 @@ package Oauth;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import org.testng.Assert;
 import pojo.Api;
 import pojo.WebAutomation;
 import pojo.getCourse;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static io.restassured.RestAssured.*;
@@ -14,6 +17,7 @@ public class oauthTest {
 
     public static void main(String[] args){
 
+        String[] courseTitles = {"Selenium Webdriver Java","Cypress","Protractor"};
         RestAssured.baseURI = "https://rahulshettyacademy.com/";
 
         // Get Token
@@ -54,9 +58,12 @@ public class oauthTest {
             System.out.println(webCourse.get(i).getCourseTitle());
         }
 
-        System.out.println("SOUT with for-each");
+        ArrayList<String> a = new ArrayList<String>();
         for(WebAutomation course : webCourse){
-            System.out.println(course.getCourseTitle());
+            a.add(course.getCourseTitle());
         }
+
+        List<String> expectedList = Arrays.asList(courseTitles);
+        Assert.assertTrue(a.equals(expectedList));
     }
 }
