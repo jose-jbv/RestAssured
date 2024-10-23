@@ -46,6 +46,5 @@ public class oauthTest {
                 System.out.println(apiCourses.get(i).getPrice());
             }
         }
-
     }
 }
