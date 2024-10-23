@@ -48,9 +48,15 @@ public class oauthTest {
             }
         }
 
+        System.out.println("SOUT with normal for");
         List<WebAutomation> webCourse = detailsResponse.getCourses().getWebAutomation();
         for(int i = 0; i<webCourse.size();i++){
             System.out.println(webCourse.get(i).getCourseTitle());
+        }
+
+        System.out.println("SOUT with for-each");
+        for(WebAutomation course : webCourse){
+            System.out.println(course.getCourseTitle());
         }
     }
 }
