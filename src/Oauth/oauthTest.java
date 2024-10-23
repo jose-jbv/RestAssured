@@ -3,6 +3,7 @@ package Oauth;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import pojo.Api;
+import pojo.WebAutomation;
 import pojo.getCourse;
 
 import java.util.List;
@@ -45,6 +46,11 @@ public class oauthTest {
             if(apiCourses.get(i).getCourseTitle().equalsIgnoreCase("SoapUi Webservices testing")){
                 System.out.println(apiCourses.get(i).getPrice());
             }
+        }
+
+        List<WebAutomation> webCourse = detailsResponse.getCourses().getWebAutomation();
+        for(int i = 0; i<webCourse.size();i++){
+            System.out.println(webCourse.get(i).getCourseTitle());
         }
     }
 }
