@@ -2,7 +2,10 @@ package Oauth;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import pojo.Api;
 import pojo.getCourse;
+
+import java.util.List;
 
 import static io.restassured.RestAssured.*;
 
@@ -32,7 +35,17 @@ public class oauthTest {
                 when().
                     get("oauthapi/getCourseDetails").as(getCourse.class);
 
+        // print linkedin
         System.out.println(detailsResponse.getLinkedIn());
+
+        System.out.println(detailsResponse.getCourses().getApi().get(1).getCourseTitle());
+        List<Api> apiCourses = detailsResponse.getCourses().getApi();
+
+        for(int i=0; i<apiCourses.size();i++){
+            if(apiCourses.get(i).getCourseTitle().equalsIgnoreCase("SoapUi Webservices testing")){
+                System.out.println(apiCourses.get(i).getPrice());
+            }
+        }
 
     }
 }
