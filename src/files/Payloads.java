@@ -1,6 +1,6 @@
 package files;
 
-public class payloads {
+public class Payloads {
 	
 	public static String addPlace() {
 		return "{\r\n"

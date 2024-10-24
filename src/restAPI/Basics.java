@@ -1,5 +1,5 @@
 package restAPI;
-import files.payloads;
+import files.Payloads;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
@@ -19,7 +19,7 @@ public class Basics {
 		String response = 
 		given()
 		.queryParam("key", "qaclick123").header("Content-Type","application/json")
-		.body(payloads.addPlace())
+		.body(Payloads.addPlace())
 		.when().post("/maps/api/place/add/json")
 		.then() // .log().all()
 		.assertThat()

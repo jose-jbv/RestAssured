@@ -1,16 +1,16 @@
 package restAPI;
 
-import files.payloads;
+import files.Payloads;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class sumValidation {
+public class SumValidation {
 
     @Test
     public void sumOfCourses() {
         int sum = 0;
-        JsonPath js = new JsonPath(payloads.mockResponse());
+        JsonPath js = new JsonPath(Payloads.mockResponse());
         int purchaseAmount = js.getInt("dashboard.purchaseAmount");
         int count = js.getInt("courses.size()");
         for(int i = 0; i < count; i++) {

@@ -1,11 +1,11 @@
 package restAPI;
 
-import files.payloads;
+import files.Payloads;
 import io.restassured.path.json.JsonPath;
 
-public class jsonParse {
+public class JsonParse {
     public static void main(String [] args){
-        JsonPath js = new JsonPath(payloads.mockResponse());
+        JsonPath js = new JsonPath(Payloads.mockResponse());
         // System.out.println(js.getInt("dashboard.purchaseAmount"));
         int count = js.getInt("courses.size()");
         // System.out.println(count);

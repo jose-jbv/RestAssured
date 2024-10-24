@@ -1,6 +1,6 @@
 package restAPI;
 
-import files.payloads;
+import files.Payloads;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.*;
 
@@ -8,7 +8,7 @@ import io.restassured.path.json.JsonPath;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class dynamicJson {
+public class DynamicJson {
 
     @Test(dataProvider = "BooksData")
     public void addBook(String isbn, String aisle) {
@@ -17,7 +17,7 @@ public class dynamicJson {
         String response =
         given().
             header("Content-Type","application/json").
-            body(payloads.addBook(isbn,aisle)).
+            body(Payloads.addBook(isbn,aisle)).
         when().
             post("Library/Addbook.php").
         then().

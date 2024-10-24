@@ -1,6 +1,5 @@
 package restAPI;
 
-import files.payloads;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
@@ -12,7 +11,7 @@ import java.nio.file.Paths;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class basicsWithFile {
+public class BasicsWithFile {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub

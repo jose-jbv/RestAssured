@@ -1,11 +1,11 @@
-package Oauth;
+package oauth;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import pojo.Api;
 import pojo.WebAutomation;
-import pojo.getCourse;
+import pojo.GetCourse;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +13,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.*;
 
-public class oauthTest {
+public class OAauthTest {
 
     public static void main(String[] args){
 
@@ -34,11 +34,11 @@ public class oauthTest {
         String access_token = js.getString("access_token");
 
         // Get Details
-        getCourse detailsResponse =
+        GetCourse detailsResponse =
                 given().
                     queryParam("access_token",access_token).
                 when().
-                    get("oauthapi/getCourseDetails").as(getCourse.class);
+                    get("oauthapi/getCourseDetails").as(GetCourse.class);
 
         // print linkedin
         System.out.println(detailsResponse.getLinkedIn());
